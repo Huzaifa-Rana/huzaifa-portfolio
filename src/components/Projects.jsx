@@ -117,9 +117,9 @@ export default function Projects() {
       image: studiodImage,
       url: "https://studiodinteriors.net/",
       metrics: [
-        { label: "Lighthouse Speed", val: "98/100", icon: <Zap size={13} /> },
-        { label: "Google SEO Index", val: "Indexed", icon: <TrendingUp size={13} /> },
-        { label: "Viewport Scaling", val: "Responsive", icon: <Clock size={13} /> }
+        { label: "Lighthouse", val: "98/100", icon: <Zap size={13} /> },
+        { label: "SEO Rank", val: "Indexed", icon: <TrendingUp size={13} /> },
+        { label: "Mobile UX", val: "Responsive", icon: <Clock size={13} /> }
       ],
       glow: "rgba(139, 92, 246, 0.12)"
     }
