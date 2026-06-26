@@ -105,14 +105,16 @@ export default function Hero() {
                       className={`ide-tab ${currentTab === 'saas' ? 'active' : ''}`}
                       onClick={() => setCurrentTab('saas')}
                     >
-                      SaaS Platform Demo
+                      <span className="hide-mobile">SaaS Platform Demo</span>
+                      <span className="show-mobile">SaaS Demo</span>
                     </button>
                     <button 
                       type="button" 
                       className={`ide-tab ${currentTab === 'shopify' ? 'active' : ''}`}
                       onClick={() => setCurrentTab('shopify')}
                     >
-                      Shopify Integration
+                      <span className="hide-mobile">Shopify Integration</span>
+                      <span className="show-mobile">Shopify</span>
                     </button>
                   </div>
                 </div>
@@ -820,6 +822,13 @@ export default function Hero() {
           60% { transform: translateY(-4px); }
         }
 
+        .show-mobile {
+          display: none;
+        }
+        .hide-mobile {
+          display: inline;
+        }
+
         @media (max-width: 1024px) {
           .hero-title { font-size: 3rem; }
           .hero-visual { height: 420px; }
@@ -874,10 +883,10 @@ export default function Hero() {
             min-height: 310px;
           }
           
-          .floating-tag.tailwind { left: -10px; }
-          .floating-tag.react { right: -10px; }
-          .floating-tag.php { left: -10px; }
-          .floating-tag.deployment { right: -10px; }
+          .floating-tag.tailwind { left: 10px; top: 12%; }
+          .floating-tag.react { right: 10px; bottom: 20%; }
+          .floating-tag.php { left: 10px; bottom: 10%; }
+          .floating-tag.deployment { right: 10px; top: 12%; }
         }
 
         @media (max-width: 540px) {
@@ -898,7 +907,20 @@ export default function Hero() {
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 580px) {
+          .show-mobile {
+            display: inline;
+          }
+          .hide-mobile {
+            display: none;
+          }
+          .ide-dots {
+            display: none;
+          }
+          .ide-header {
+            gap: 0.5rem;
+            justify-content: center;
+          }
           .ide-card {
             height: auto;
             min-height: 330px;
