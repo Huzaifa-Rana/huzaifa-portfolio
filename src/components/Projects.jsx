@@ -11,69 +11,73 @@ function ProjectCard({ project, idx }) {
 
   return (
     <motion.div 
-      ref={cardRef}
-      className="project-card glass-panel"
+      className="project-card-entrance-wrapper"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay: idx * 0.15 }}
-      style={{ ...tiltStyle, '--card-ambient-glow': project.glow }}
     >
-      {/* Visual Header / Image Node (No overlapping overlays) */}
-      {project.image ? (
-        <div className="project-image-wrapper">
-          <img src={project.image} alt={project.title} className="project-card-image" />
-        </div>
-      ) : (
-        <div className="project-visual-header">
-          <div className="dot-cluster">
-            <span className="dot red"></span>
-            <span className="dot yellow"></span>
-            <span className="dot green"></span>
+      <div 
+        ref={cardRef}
+        className="project-card glass-panel"
+        style={{ ...tiltStyle, '--card-ambient-glow': project.glow }}
+      >
+        {/* Visual Header / Image Node (No overlapping overlays) */}
+        {project.image ? (
+          <div className="project-image-wrapper">
+            <img src={project.image} alt={project.title} className="project-card-image" />
           </div>
-        </div>
-      )}
-
-      <div className="project-body">
-        {/* Category Label above Title */}
-        <span className="project-category-lbl">{project.category}</span>
-        
-        <div className="project-title-row">
-          <h3 className="project-title-name">{project.title}</h3>
-          {project.url && (
-            <a 
-              href={project.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="project-external-link"
-              aria-label={`Visit ${project.title}`}
-            >
-              <ExternalLink size={16} />
-            </a>
-          )}
-        </div>
-        
-        <p className="project-description-text">{project.desc}</p>
-
-        <div className="project-tech-tags">
-          {project.tech.map((t, tidx) => (
-            <span key={tidx} className="project-tech-tag">{t}</span>
-          ))}
-        </div>
-
-        <div className="project-divider"></div>
-
-        {/* Dynamic Business Value Indicators */}
-        <div className="project-metrics-grid">
-          {project.metrics.map((m, midx) => (
-            <div key={midx} className="metric-box">
-              <div className="metric-icon-val">
-                {m.icon}
-                <span className="metric-val">{m.val}</span>
-              </div>
-              <span className="metric-label">{m.label}</span>
+        ) : (
+          <div className="project-visual-header">
+            <div className="dot-cluster">
+              <span className="dot red"></span>
+              <span className="dot yellow"></span>
+              <span className="dot green"></span>
             </div>
-          ))}
+          </div>
+        )}
+
+        <div className="project-body">
+          {/* Category Label above Title */}
+          <span className="project-category-lbl">{project.category}</span>
+          
+          <div className="project-title-row">
+            <h3 className="project-title-name">{project.title}</h3>
+            {project.url && (
+              <a 
+                href={project.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-external-link"
+                aria-label={`Visit ${project.title}`}
+              >
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
+          
+          <p className="project-description-text">{project.desc}</p>
+
+          <div className="project-tech-tags">
+            {project.tech.map((t, tidx) => (
+              <span key={tidx} className="project-tech-tag">{t}</span>
+            ))}
+          </div>
+
+          <div className="project-divider"></div>
+
+          {/* Dynamic Business Value Indicators */}
+          <div className="project-metrics-grid">
+            {project.metrics.map((m, midx) => (
+              <div key={midx} className="metric-box">
+                <div className="metric-icon-val">
+                  {m.icon}
+                  <span className="metric-val">{m.val}</span>
+                </div>
+                <span className="metric-label">{m.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -158,6 +162,12 @@ export default function Projects() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
+        }
+
+        .project-card-entrance-wrapper {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
 
         .project-card {

@@ -83,161 +83,163 @@ export default function Hero() {
             
             {/* 1. Interactive Client-Friendly Dashboard Mockup (Back Plane) */}
             <motion.div 
-              ref={dashboardCardRef}
-              style={dashboardCardTiltStyle}
-              className="ide-card glass-panel"
+              className="ide-card-wrapper"
               initial={{ opacity: 0, x: 40, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <div className="ide-header">
-                <div className="ide-dots">
-                  <span className="ide-dot red"></span>
-                  <span className="ide-dot yellow"></span>
-                  <span className="ide-dot green"></span>
-                </div>
-                <div className="ide-tabs">
-                  <button 
-                    type="button" 
-                    className={`ide-tab ${currentTab === 'saas' ? 'active' : ''}`}
-                    onClick={() => setCurrentTab('saas')}
-                  >
-                    SaaS Platform Demo
-                  </button>
-                  <button 
-                    type="button" 
-                    className={`ide-tab ${currentTab === 'shopify' ? 'active' : ''}`}
-                    onClick={() => setCurrentTab('shopify')}
-                  >
-                    Shopify Integration
-                  </button>
-                </div>
-              </div>
-              
-              <div className="ide-body dashboard-body">
-                {currentTab === 'saas' ? (
-                  <div className="dash-view">
-                    {/* Top Row Widgets */}
-                    <div className="dash-widgets-row">
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">Monthly Revenue</span>
-                          <DollarSign size={14} className="widget-icon-light cyan" />
-                        </div>
-                        <div className="widget-value">$18,240</div>
-                        <span className="widget-change positive">+14.2%</span>
-                      </div>
-                      
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">Active Users</span>
-                          <Users size={14} className="widget-icon-light purple" />
-                        </div>
-                        <div className="widget-value">1,420</div>
-                        <span className="widget-change positive">+8.6%</span>
-                      </div>
-
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">Stripe Gateway</span>
-                          <Activity size={14} className="widget-icon-light green" />
-                        </div>
-                        <div className="widget-badge active-badge">Connected</div>
-                        <span className="widget-change neutral">Uptime 99%</span>
-                      </div>
-                    </div>
-
-                    {/* Chart Mockup */}
-                    <div className="dash-chart-wrapper glass-panel">
-                      <div className="chart-header">
-                        <span className="chart-title">User Growth Trend</span>
-                        <span className="chart-legend">Q1-Q2 Analysis</span>
-                      </div>
-                      <div className="chart-visual-mock">
-                        <svg viewBox="0 0 400 100" width="100%" height="80">
-                          {/* Grid lines */}
-                          <line x1="0" y1="20" x2="400" y2="20" stroke="rgba(255,255,255,0.03)" />
-                          <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.03)" />
-                          <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,255,255,0.03)" />
-                          {/* Gradient Path */}
-                          <path 
-                            d="M 0,90 Q 60,80 100,50 T 200,60 T 300,20 T 400,10" 
-                            fill="none" 
-                            stroke="url(#chartGlow)" 
-                            strokeWidth="3.5"
-                          />
-                          <path 
-                            d="M 0,90 Q 60,80 100,50 T 200,60 T 300,20 T 400,10 L 400,100 L 0,100 Z" 
-                            fill="url(#chartAreaGlow)" 
-                            opacity="0.1"
-                          />
-                          <defs>
-                            <linearGradient id="chartGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="#00f2fe" />
-                              <stop offset="100%" stopColor="#8b5cf6" />
-                            </linearGradient>
-                            <linearGradient id="chartAreaGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-                              <stop offset="0%" stopColor="#00f2fe" />
-                              <stop offset="100%" stopColor="transparent" />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </div>
-                    </div>
+              <div
+                ref={dashboardCardRef}
+                style={dashboardCardTiltStyle}
+                className="ide-card glass-panel"
+              >
+                <div className="ide-header">
+                  <div className="ide-dots">
+                    <span className="ide-dot red"></span>
+                    <span className="ide-dot yellow"></span>
+                    <span className="ide-dot green"></span>
                   </div>
-                ) : (
-                  <div className="dash-view">
-                    {/* Top Row Widgets */}
-                    <div className="dash-widgets-row">
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">Store Installs</span>
-                          <ShoppingBag size={14} className="widget-icon-light purple" />
-                        </div>
-                        <div className="widget-value">480 Stores</div>
-                        <span className="widget-change positive">+24 New</span>
-                      </div>
-                      
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">Sync Webhooks</span>
-                          <Zap size={14} className="widget-icon-light cyan" />
-                        </div>
-                        <div className="widget-value">99.98%</div>
-                        <span className="widget-change positive">Healthy</span>
-                      </div>
-
-                      <div className="widget-card glass-panel">
-                        <div className="widget-header">
-                          <span className="widget-title">App Bridge UI</span>
-                          <Check size={14} className="widget-icon-light green" />
-                        </div>
-                        <div className="widget-badge active-badge shopify-badge">Certified</div>
-                        <span className="widget-change neutral">Embedded</span>
-                      </div>
-                    </div>
-
-                    {/* Webhook Log Console */}
-                    <div className="dash-chart-wrapper glass-panel console-log-panel">
-                      <div className="chart-header">
-                        <span className="chart-title">Real-Time Webhook Gateway logs</span>
-                        <span className="status-indicator-light"></span>
-                      </div>
-                      <div className="console-logs-list">
-                        <div className="log-row"><span className="log-time">[10:42:01]</span> <span className="log-tag ok">OK</span> <span className="log-msg">orders/create webhook trigger matched</span></div>
-                        <div className="log-row"><span className="log-time">[10:43:15]</span> <span className="log-tag ok">OK</span> <span className="log-msg">Shopify checkout session updated: code applied</span></div>
-                        <div className="log-row"><span className="log-time">[10:44:48]</span> <span className="log-tag wait">SYNC</span> <span className="log-msg">GraphQL database replication task complete</span></div>
-                      </div>
-                    </div>
+                  <div className="ide-tabs">
+                    <button 
+                      type="button" 
+                      className={`ide-tab ${currentTab === 'saas' ? 'active' : ''}`}
+                      onClick={() => setCurrentTab('saas')}
+                    >
+                      SaaS Platform Demo
+                    </button>
+                    <button 
+                      type="button" 
+                      className={`ide-tab ${currentTab === 'shopify' ? 'active' : ''}`}
+                      onClick={() => setCurrentTab('shopify')}
+                    >
+                      Shopify Integration
+                    </button>
                   </div>
-                )}
+                </div>
+                
+                <div className="ide-body dashboard-body">
+                  {currentTab === 'saas' ? (
+                    <div className="dash-view">
+                      {/* Top Row Widgets */}
+                      <div className="dash-widgets-row">
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">Monthly Revenue</span>
+                            <DollarSign size={14} className="widget-icon-light cyan" />
+                          </div>
+                          <div className="widget-value">$18,240</div>
+                          <span className="widget-change positive">+14.2%</span>
+                        </div>
+                        
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">Active Users</span>
+                            <Users size={14} className="widget-icon-light purple" />
+                          </div>
+                          <div className="widget-value">1,420</div>
+                          <span className="widget-change positive">+8.6%</span>
+                        </div>
+
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">Stripe Gateway</span>
+                            <Activity size={14} className="widget-icon-light green" />
+                          </div>
+                          <div className="widget-badge active-badge">Connected</div>
+                          <span className="widget-change neutral">Uptime 99%</span>
+                        </div>
+                      </div>
+
+                      {/* Chart Mockup */}
+                      <div className="dash-chart-wrapper glass-panel">
+                        <div className="chart-header">
+                          <span className="chart-title">User Growth Trend</span>
+                          <span className="chart-legend">Q1-Q2 Analysis</span>
+                        </div>
+                        <div className="chart-visual-mock">
+                          <svg viewBox="0 0 400 100" width="100%" height="80">
+                            {/* Grid lines */}
+                            <line x1="0" y1="20" x2="400" y2="20" stroke="rgba(255,255,255,0.03)" />
+                            <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.03)" />
+                            <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,255,255,0.03)" />
+                            {/* Gradient Path */}
+                            <path 
+                              d="M 0,90 Q 60,80 100,50 T 200,60 T 300,20 T 400,10" 
+                              fill="none" 
+                              stroke="url(#chartGlow)" 
+                              strokeWidth="3.5"
+                            />
+                            <path 
+                              d="M 0,90 Q 60,80 100,50 T 200,60 T 300,20 T 400,10 L 400,100 L 0,100 Z" 
+                              fill="url(#chartAreaGlow)" 
+                              opacity="0.1"
+                            />
+                            <defs>
+                              <linearGradient id="chartGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#00f2fe" />
+                                <stop offset="100%" stopColor="#8b5cf6" />
+                              </linearGradient>
+                              <linearGradient id="chartAreaGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stopColor="#00f2fe" />
+                                <stop offset="100%" stopColor="transparent" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="dash-view">
+                      {/* Top Row Widgets */}
+                      <div className="dash-widgets-row">
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">Store Installs</span>
+                            <ShoppingBag size={14} className="widget-icon-light purple" />
+                          </div>
+                          <div className="widget-value">480 Stores</div>
+                          <span className="widget-change positive">+24 New</span>
+                        </div>
+                        
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">Sync Webhooks</span>
+                            <Zap size={14} className="widget-icon-light cyan" />
+                          </div>
+                          <div className="widget-value">99.98%</div>
+                          <span className="widget-change positive">Healthy</span>
+                        </div>
+
+                        <div className="widget-card glass-panel">
+                          <div className="widget-header">
+                            <span className="widget-title">App Bridge UI</span>
+                            <Check size={14} className="widget-icon-light green" />
+                          </div>
+                          <div className="widget-badge active-badge shopify-badge">Certified</div>
+                          <span className="widget-change neutral">Embedded</span>
+                        </div>
+                      </div>
+
+                      {/* Webhook Log Console */}
+                      <div className="dash-chart-wrapper glass-panel console-log-panel">
+                        <div className="chart-header">
+                          <span className="chart-title">Real-Time Webhook Gateway logs</span>
+                          <span className="status-indicator-light"></span>
+                        </div>
+                        <div className="console-logs-list">
+                          <div className="log-row"><span className="log-time">[10:42:01]</span> <span className="log-tag ok">OK</span> <span className="log-msg">orders/create webhook trigger matched</span></div>
+                          <div className="log-row"><span className="log-time">[10:43:15]</span> <span className="log-tag ok">OK</span> <span className="log-msg">Shopify checkout session updated: code applied</span></div>
+                          <div className="log-row"><span className="log-time">[10:44:48]</span> <span className="log-tag wait">SYNC</span> <span className="log-msg">GraphQL database replication task complete</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
 
             {/* 2. Interactive Profile Card (Front Plane - Overlapping) */}
             <motion.div 
-              ref={imageCardRef}
-              style={imageCardTiltStyle}
               className="image-card-container"
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -245,7 +247,11 @@ export default function Hero() {
             >
               <div className="glow-ring"></div>
               
-              <div className="image-card glass-panel">
+              <div 
+                ref={imageCardRef}
+                style={imageCardTiltStyle}
+                className="image-card glass-panel"
+              >
                 <div className="image-wrapper">
                   <img 
                     src={huzaifaImage} 
@@ -402,13 +408,18 @@ export default function Hero() {
         }
 
         /* IDE/Dashboard card details */
-        .ide-card {
+        .ide-card-wrapper {
           position: absolute;
           width: 440px;
           height: 310px;
           left: -40px;
           top: 30px;
           z-index: 1;
+        }
+
+        .ide-card {
+          width: 100%;
+          height: 100%;
           border-radius: 14px;
           overflow: hidden;
           background: rgba(10, 16, 32, 0.85);

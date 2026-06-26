@@ -8,38 +8,42 @@ function ServiceCard({ service, cardVariants }) {
 
   return (
     <motion.div 
-      ref={cardRef}
-      style={tiltStyle}
-      className={`service-card glass-panel glass-panel-hover ${service.glowClass}`}
       variants={cardVariants}
+      className="service-card-entrance-wrapper"
     >
-      <div className="service-icon-wrapper">
-        {service.icon}
-      </div>
-      
-      <div className="service-header-meta">
-        <span className="service-tag-small">{service.tag}</span>
-        <h3 className="service-card-title">{service.title}</h3>
-      </div>
+      <div 
+        ref={cardRef}
+        style={tiltStyle}
+        className={`service-card glass-panel glass-panel-hover ${service.glowClass}`}
+      >
+        <div className="service-icon-wrapper">
+          {service.icon}
+        </div>
+        
+        <div className="service-header-meta">
+          <span className="service-tag-small">{service.tag}</span>
+          <h3 className="service-card-title">{service.title}</h3>
+        </div>
 
-      <p className="service-desc">{service.description}</p>
+        <p className="service-desc">{service.description}</p>
 
-      <div className="divider-h"></div>
+        <div className="divider-h"></div>
 
-      <div className="service-features-list">
-        <h4 className="features-title">Core Competencies:</h4>
-        <ul>
-          {service.features.map((feat, fidx) => (
-            <li key={fidx}>
-              <CheckCircle2 size={15} className="feature-check" />
-              <span>{feat}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="service-features-list">
+          <h4 className="features-title">Core Competencies:</h4>
+          <ul>
+            {service.features.map((feat, fidx) => (
+              <li key={fidx}>
+                <CheckCircle2 size={15} className="feature-check" />
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="service-footer">
-        <span className="speed-badge">{service.speed}</span>
+        <div className="service-footer">
+          <span className="speed-badge">{service.speed}</span>
+        </div>
       </div>
     </motion.div>
   );
@@ -151,6 +155,12 @@ export default function Services() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
+        }
+
+        .service-card-entrance-wrapper {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
 
         .service-card {
