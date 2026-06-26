@@ -42,7 +42,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Hi, I'm <strong>Huzaifa</strong>, a Full Stack Developer. Anyone can generate a website with AI, but building a secure, optimized platform requires real engineering. I combine custom development with modern tools to deliver fast, scalable web apps, portals, and e-commerce systems tailored to your business goals. Skip the buggy templates—let's build a solution that actually works.
+              Hi, I'm <strong>Huzaifa</strong>, a Full Stack Developer. AI can write code, but building secure, optimized platforms requires real engineering. I deliver fast, responsive web apps, custom portals, and e-commerce systems tailored to your goals. Let's skip the templates and build a solution that works.
             </p>
 
             <div className="hero-ctas">
@@ -823,7 +823,7 @@ export default function Hero() {
         @media (max-width: 1024px) {
           .hero-title { font-size: 3rem; }
           .hero-visual { height: 420px; }
-          .ide-card { width: 380px; left: -20px; }
+          .ide-card-wrapper { width: 380px; left: -20px; }
           .image-card-container { width: 280px; right: -10px; }
         }
 
@@ -859,11 +859,19 @@ export default function Hero() {
             gap: 2rem;
           }
 
-          .ide-card, .image-card-container {
+          .ide-card-wrapper, .image-card-container {
             position: static;
             width: 100%;
             max-width: 380px;
             margin: 0 auto;
+            height: auto;
+          }
+
+          .ide-card {
+            position: static;
+            width: 100%;
+            height: auto;
+            min-height: 310px;
           }
           
           .floating-tag.tailwind { left: -10px; }
