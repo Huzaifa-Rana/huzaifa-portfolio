@@ -468,6 +468,7 @@ label {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    position: relative;
     z-index: 1001;
   }
   
@@ -475,6 +476,7 @@ label {
     position: fixed;
     top: 0;
     right: -100%;
+    z-index: 1000;
     width: 290px;
     height: 100vh;
     background: rgba(4, 6, 12, 0.99);
