@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Zap, Clock, ExternalLink } from 'lucide-react';
+import { TrendingUp, Zap, Clock, ExternalLink, Home } from 'lucide-react';
 import useTilt from '../hooks/useTilt';
 import naffeezImage from '../assets/naffeez.png';
 import naffeezAdminImage from '../assets/naffeez-admin.png';
 import studiodImage from '../assets/studiod.png';
+import realestateImage from '../assets/realestate.png';
 
 function ProjectCard({ project, idx }) {
   const [cardRef, tiltStyle] = useTilt(6, 1.01);
@@ -126,6 +127,20 @@ export default function Projects() {
         { label: "Mobile UX", val: "Responsive", icon: <Clock size={13} /> }
       ],
       glow: "rgba(139, 92, 246, 0.12)"
+    },
+    {
+      title: "LuxeHaven Real Estate",
+      category: "Luxury Property Platform",
+      desc: "A premium real estate web platform for exclusive off-market luxury residences. Features cinematic hero sliders, property search filters, advisor profiles, testimonials, and full mobile responsiveness.",
+      tech: ["React.js", "CSS3", "Framer Motion", "Responsive Design", "GitHub Pages"],
+      image: realestateImage,
+      url: "https://huzaifa-rana.github.io/realestate/",
+      metrics: [
+        { label: "Design", val: "Premium", icon: <Home size={13} /> },
+        { label: "Animations", val: "Smooth", icon: <Zap size={13} /> },
+        { label: "Mobile UX", val: "Responsive", icon: <TrendingUp size={13} /> }
+      ],
+      glow: "rgba(212, 175, 55, 0.12)"
     }
   ];
 
@@ -160,7 +175,7 @@ export default function Projects() {
 
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 2rem;
         }
 
