@@ -5,7 +5,7 @@ import useTilt from '../hooks/useTilt';
 import naffeezImage from '../assets/naffeez.png';
 import naffeezAdminImage from '../assets/naffeez-admin.png';
 import studiodImage from '../assets/studiod.png';
-import realestateImage from '../assets/realestate.jpg';
+import realestateImage from '../assets/realestate.png';
 
 function ProjectCard({ project, idx }) {
   const [cardRef, tiltStyle] = useTilt(6, 1.01);
