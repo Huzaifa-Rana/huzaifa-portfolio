@@ -1,7 +1,7 @@
 {
-  "name": "temp-vite-app",
+  "name": "huzaifa-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,13 @@
     "lint": "oxlint",
     "preview": "vite preview"
   },
+  "browserslist": [
+    "defaults",
+    "ios >= 12",
+    "safari >= 12",
+    "not dead",
+    "not IE 11"
+  ],
   "dependencies": {
     "framer-motion": "^12.42.0",
     "lucide-react": "^1.21.0",
@@ -26,3 +33,4 @@
     "vite": "^8.1.0"
   }
 }
+
