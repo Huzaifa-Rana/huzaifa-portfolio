@@ -466,6 +466,14 @@ label {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding: calc(1rem + env(safe-area-inset-top, 0px)) 0 1rem;
+  }
+  
+  header.scrolled {
+    padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 0 0.75rem;
+  }
+
   .nav-toggle {
     display: block;
     position: relative;
