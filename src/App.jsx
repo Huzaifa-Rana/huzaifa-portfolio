@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -12,6 +12,13 @@ import CanvasParticles from './components/CanvasParticles';
 export default function App() {
   const cursorDotRef = useRef(null);
   const cursorOutlineRef = useRef(null);
+  const [showCursor, setShowCursor] = useState(false);
+
+  useEffect(() => {
+    // Only show custom cursor on devices that support hover (desktops)
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    setShowCursor(hasHover);
+  }, []);
 
   useEffect(() => {
     const dot = cursorDotRef.current;
@@ -51,13 +58,17 @@ export default function App() {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animId);
     };
-  }, []);
+  }, [showCursor]);
 
   return (
     <>
-      {/* GPU-Accelerated Spring Cursor Follower (Hidden on mobile) */}
-      <div ref={cursorDotRef} className="custom-cursor-dot"></div>
-      <div ref={cursorOutlineRef} className="custom-cursor"></div>
+      {/* GPU-Accelerated Spring Cursor Follower (Only on desktop/hover devices) */}
+      {showCursor && (
+        <>
+          <div ref={cursorDotRef} className="custom-cursor-dot"></div>
+          <div ref={cursorOutlineRef} className="custom-cursor"></div>
+        </>
+      )}
 
       {/* Decorative Interactive Background Vectors */}
       <div className="glow-container">
