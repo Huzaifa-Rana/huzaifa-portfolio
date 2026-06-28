@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Zap, Clock, ExternalLink, Home } from 'lucide-react';
 import useTilt from '../hooks/useTilt';
-import naffeezImage from '../assets/naffeez.png';
-import naffeezAdminImage from '../assets/naffeez-admin.png';
-import studiodImage from '../assets/studiod.png';
-import realestateImage from '../assets/realestate.png';
+import naffeezImage from '../assets/naffeez.webp';
+import naffeezAdminImage from '../assets/naffeez-admin.webp';
+import studiodImage from '../assets/studiod.webp';
+import realestateImage from '../assets/realestate.webp';
 
 function ProjectCard({ project, idx }) {
   const [cardRef, tiltStyle] = useTilt(6, 1.01);
