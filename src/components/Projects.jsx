@@ -25,9 +25,22 @@ function ProjectCard({ project, idx }) {
       >
         {/* Visual Header / Image Node (No overlapping overlays) */}
         {project.image ? (
-          <div className="project-image-wrapper">
-            <img src={project.image} alt={project.title} className="project-card-image" />
-          </div>
+          project.url ? (
+            <a 
+              href={project.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-image-link"
+            >
+              <div className="project-image-wrapper">
+                <img src={project.image} alt={project.title} className="project-card-image" />
+              </div>
+            </a>
+          ) : (
+            <div className="project-image-wrapper">
+              <img src={project.image} alt={project.title} className="project-card-image" />
+            </div>
+          )
         ) : (
           <div className="project-visual-header">
             <div className="dot-cluster">
@@ -43,7 +56,18 @@ function ProjectCard({ project, idx }) {
           <span className="project-category-lbl">{project.category}</span>
           
           <div className="project-title-row">
-            <h3 className="project-title-name">{project.title}</h3>
+            {project.url ? (
+              <a 
+                href={project.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-title-link"
+              >
+                <h3 className="project-title-name">{project.title}</h3>
+              </a>
+            ) : (
+              <h3 className="project-title-name">{project.title}</h3>
+            )}
             {project.url && (
               <a 
                 href={project.url} 
@@ -274,11 +298,20 @@ export default function Projects() {
           gap: 1rem;
         }
 
+        .project-title-link {
+          text-decoration: none;
+        }
+
         .project-title-name {
           font-size: 1.3rem;
           color: #ffffff;
           font-weight: 800;
           margin-bottom: 0;
+          transition: color 0.2s ease;
+        }
+
+        .project-title-link:hover .project-title-name {
+          color: var(--primary);
         }
 
         .project-external-link {
