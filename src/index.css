@@ -486,11 +486,13 @@ label {
     flex-direction: column;
     padding: 6.5rem 2rem 2rem;
     align-items: flex-start;
-    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    visibility: hidden;
   }
   
   .nav-links.open {
     right: 0;
+    visibility: visible;
   }
   
   .custom-cursor, .custom-cursor-dot {
